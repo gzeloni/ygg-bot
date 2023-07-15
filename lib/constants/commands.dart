@@ -1,11 +1,11 @@
 import 'package:nyxx/nyxx.dart';
 import 'package:ygg_bot/models/lexer.dart';
 
-typedef CommandAction = void Function(List<Token> tokens,
-    Map<String, String> flags, INyxxWebsocket bot, IMessageReceivedEvent event);
+typedef CommandAction = void Function(
+    List<Token> tokens, Map<String, String> flags, IMessageReceivedEvent event);
 
 final commandMap = {
-  'y.wiki': (tokens, flags, bot, event) async {
+  'y.wiki': (tokens, flags, event) async {
     print('Comando y.wiki executado com os seguintes tokens: $tokens');
     print('Flags: $flags');
     try {

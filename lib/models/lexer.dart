@@ -48,8 +48,7 @@ class CommandInterpreter {
 
   CommandInterpreter(this.commands);
 
-  void executeCommand(
-      String input, INyxxWebsocket bot, IMessageReceivedEvent event) {
+  void executeCommand(String input, IMessageReceivedEvent event) {
     final lexer = Lexer(input);
     final tokens = lexer.tokenize();
 
@@ -58,7 +57,7 @@ class CommandInterpreter {
     if (commands.containsKey(command)) {
       final commandAction = commands[command];
       final flags = extractFlags(tokens);
-      commandAction!(tokens, flags, bot, event);
+      commandAction!(tokens, flags, event);
     } else {
       print('Comando não reconhecido: $command');
     }

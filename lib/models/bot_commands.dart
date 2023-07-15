@@ -57,8 +57,7 @@ class BotCommands {
           // final queries = Queries(queryName: queryName, event: event, bot: bot);
           try {
             // queries.query();
-            commandInterpreter.executeCommand(
-                event.message.content, bot, event);
+            commandInterpreter.executeCommand(event.message.content, event);
           } catch (e) {
             sendEmbedMessageErrorHandler(e, event, bot);
           }
