@@ -1,4 +1,5 @@
 import 'package:nyxx/nyxx.dart';
+import 'package:ygg_bot/constants/commands.dart';
 
 class Token {
   final String type;
@@ -9,9 +10,6 @@ class Token {
   @override
   String toString() => 'Token($type, $value)';
 }
-
-typedef CommandAction = void Function(List<Token> tokens,
-    Map<String, String> flags, INyxxWebsocket bot, IMessageReceivedEvent event);
 
 class Lexer {
   final String input;
