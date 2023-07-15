@@ -1,4 +1,5 @@
 import 'package:nyxx/nyxx.dart';
+import 'package:ygg_bot/graphql/queries.dart';
 import 'package:ygg_bot/models/log_function.dart';
 
 class BotCommands {
@@ -7,13 +8,12 @@ class BotCommands {
     bot.eventsWs.onMessageReceived.listen(
       (event) async {
         final content = event.message.content;
-
         if (event.message.author.bot) {
           // Ignore messages sent by bots
           return;
         }
 
-        if (content.startsWith('<<help') && content.length <= 7) {
+        if (content.startsWith('y.help') && content.length <= 7) {
           // Respond with a help message
           final embed = EmbedBuilder(
             author: EmbedAuthorBuilder(
@@ -22,7 +22,7 @@ class BotCommands {
               name: 'Ygg Bot',
             ),
             title: '- HELP -',
-            description: "Under Development",
+            description: "Under Development \n My PREFIX is \"y.\"",
             footer: EmbedFooterBuilder(
               iconUrl:
                   'https://cdn.discordapp.com/avatars/1129595664066691093/dc42349d840a8e79253da833a1c0d771.png?size=256',
@@ -38,11 +38,21 @@ class BotCommands {
           }
         }
 
-        if (content.startsWith('<<ping') && content.length <= 7) {
+        if (content.startsWith('y.ping') && content.length <= 7) {
           // Respond with a pong message
           try {
             await event.message.channel
                 .sendMessage(MessageBuilder.content('Pong!'));
+          } catch (e) {
+            sendEmbedMessageErrorHandler(e, event, bot);
+          }
+        }
+
+        if (content.startsWith('y.skills')) {
+          final queryName = content.substring(2);
+          final queries = Queries(queryName: queryName, event: event, bot: bot);
+          try {
+            queries.query();
           } catch (e) {
             sendEmbedMessageErrorHandler(e, event, bot);
           }
@@ -57,7 +67,7 @@ class BotCommands {
           // Respond with a help message when the bot is mentioned
           try {
             await event.message.channel.sendMessage(
-                MessageBuilder.content("Digite <<help para ver meus comandos"));
+                MessageBuilder.content("Digite y.help para ver meus comandos"));
           } catch (e) {
             sendEmbedMessageErrorHandler(e, event, bot);
           }
@@ -65,7 +75,7 @@ class BotCommands {
           // Respond with a random text message
           try {
             await event.message.channel.sendMessage(
-                MessageBuilder.content("Digite <<help para ver meus comandos"));
+                MessageBuilder.content("Digite y.help para ver meus comandos"));
           } catch (e) {
             sendEmbedMessageErrorHandler(e, event, bot);
           }
