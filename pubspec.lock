@@ -81,6 +81,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.2.8"
+  eterl:
+    dependency: transitive
+    description:
+      name: eterl
+      sha256: "8669e5e766e6a1cb5593a0bee6ede7085c1a103056f1ea55cc227ee1ff32f6f7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.4"
   file:
     dependency: transitive
     description:
@@ -105,6 +113,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.2"
+  http:
+    dependency: "direct main"
+    description:
+      name: http
+      sha256: "5895291c13fa8a3bd82e76d5627f69e0d85ca6a30dcac95c4ea19a5d555879c2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.13.6"
   http_multi_server:
     dependency: transitive
     description:
@@ -185,6 +201,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.2"
+  nyxx:
+    dependency: "direct main"
+    description:
+      name: nyxx
+      sha256: "0d60d18a816874bc26ab21933d0f491542dfbaaab11b29f40b824bce7950d7cd"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.1.0"
   package_config:
     dependency: transitive
     description:
@@ -217,6 +241,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
+  retry:
+    dependency: transitive
+    description:
+      name: retry
+      sha256: "822e118d5b3aafed083109c72d5f484c6dc66707885e07c0fbcb8b986bba7efc"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.2"
   shelf:
     dependency: transitive
     description:
