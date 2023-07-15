@@ -1,5 +1,5 @@
 import 'package:nyxx/nyxx.dart';
-import 'package:ygg_bot/graphql/queries.dart';
+import 'package:ygg_bot/models/graphql/queries.dart';
 import 'package:ygg_bot/models/log_function.dart';
 
 class BotCommands {
