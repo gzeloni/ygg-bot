@@ -1,5 +1,7 @@
 import 'package:nyxx/nyxx.dart';
-import 'package:ygg_bot/models/graphql/queries.dart';
+import 'package:ygg_bot/constants/commands.dart';
+// import 'package:ygg_bot/models/graphql/queries.dart';
+import 'package:ygg_bot/models/lexer.dart';
 import 'package:ygg_bot/models/log_function.dart';
 
 class BotCommands {
@@ -8,6 +10,8 @@ class BotCommands {
     bot.eventsWs.onMessageReceived.listen(
       (event) async {
         final content = event.message.content;
+        final commandInterpreter = CommandInterpreter(commandMap);
+
         if (event.message.author.bot) {
           // Ignore messages sent by bots
           return;
@@ -48,11 +52,13 @@ class BotCommands {
           }
         }
 
-        if (content.startsWith('y.skills')) {
-          final queryName = content.substring(2);
-          final queries = Queries(queryName: queryName, event: event, bot: bot);
+        if (content.startsWith('y.wiki')) {
+          // final queryName = content.substring(2);
+          // final queries = Queries(queryName: queryName, event: event, bot: bot);
           try {
-            queries.query();
+            // queries.query();
+            commandInterpreter.executeCommand(
+                event.message.content, bot, event);
           } catch (e) {
             sendEmbedMessageErrorHandler(e, event, bot);
           }
