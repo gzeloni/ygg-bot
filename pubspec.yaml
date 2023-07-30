@@ -9,7 +9,10 @@ environment:
 # Add regular dependencies here.
 dependencies:
   http: ^0.13.6
+  intl: ^0.18.1
   nyxx: ^5.1.0
+  nyxx_commands: ^5.0.2
+  nyxx_interactions: ^4.6.0
   # path: ^1.8.0
 
 dev_dependencies:
